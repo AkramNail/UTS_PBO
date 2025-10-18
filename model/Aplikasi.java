@@ -29,13 +29,13 @@ public class Aplikasi implements Serializable {
         int pilihan;
 
         Scanner input = new Scanner(System.in);
-        System.out.print("Ketik nomor aplikasi/fitur yang anda ingin jalankan: ");
+        System.out.print("Ketik nomor aplikasi/website/fitur yang anda ingin jalankan: ");
         pilihan = input.nextInt();
 
         for (int i = 0; i < totalAplikasi; i++) {
             if (pilihan - 1 == i) {
                 
-                System.out.println("Menjalankan aplikasi: " + daftarAplikasi.get(i).namaAplikasi);
+                System.out.println("Menjalankan aplikasi/website: " + daftarAplikasi.get(i).namaAplikasi);
 
                 try{
                     Runtime.getRuntime().exec(new String[] {
