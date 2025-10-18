@@ -56,7 +56,7 @@ public class Aplikasi implements Serializable {
 
     }
 
-    void tambahAplikasi(List<Aplikasi> daftarAplikasi){
+    public Aplikasi tambahAplikasi(){
         Scanner input = new Scanner(System.in);
 
         String nama;
@@ -68,10 +68,10 @@ public class Aplikasi implements Serializable {
         System.out.println("Masukan link path aplikasi: ");
         link = input.nextLine();
 
-        daftarAplikasi.add(new Aplikasi(nama, link));
+        return new Aplikasi(nama, link);
     }
 
-    void menghapusAplikasi(List<Aplikasi> daftarAplikasi){
+    public void menghapusAplikasi(List<Aplikasi> daftarAplikasi){
 
         System.out.println("Daftar aplikasi: ");
 
@@ -115,28 +115,8 @@ public class Aplikasi implements Serializable {
 
     public void mengaturAplikasi(List<Aplikasi> daftarAplikasi){
 
-        System.out.print("1.\tMenambah aplikasi\r\n" + //
-                        "2.\tMenghapus aplikasi\r\n" +
-                        "3.\tMain menu\r\n" + //
-                        "4.\tKeluar\r\n");
-        System.out.println("Ketik nomer fitur yang ingin anda gunakan: ");
-        Scanner input = new Scanner(System.in);
-                int jawaban = input.nextInt();
-        
-        switch (jawaban) {
-            case 1:
-                tambahAplikasi(daftarAplikasi);
-            break;
-            case 2:
-                menghapusAplikasi(daftarAplikasi);
-            break;
-            case 4:
-                System.exit(0);
-            break;
+                                        
 
-            default:
-            break;
-        }
 
     }
 

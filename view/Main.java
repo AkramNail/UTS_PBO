@@ -13,6 +13,7 @@ public class Main {
         String fileName = "data_saves.ser";
         
         List<Aplikasi> daftarAplikasi = new ArrayList<>();
+        Aplikasi aplikasi = new Aplikasi("Start", "FLCL");
 
         // Baca objek dari file
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) {
@@ -45,15 +46,47 @@ public class Main {
 
             switch (pilihan) {
                 case 2:
-                    daftarAplikasi.get(0).jalankanAplikasi(daftarAplikasi);
+                    try {
+                        daftarAplikasi.get(0).jalankanAplikasi(daftarAplikasi);                        
+                    }  catch (Exception e) {
+                        System.out.println("Tidak ada aplikasi dalam data, harap tambah aplikasi terlebih dahulu");
+                    } 
                     break;
 
                 case 5:
-                    daftarAplikasi.get(0).mengaturAplikasi(daftarAplikasi);
+                    System.out.print("1.\tMenambah aplikasi\r\n" + //
+                                    "2.\tMenghapus aplikasi\r\n" +
+                                    "3.\tMain menu\r\n" + //
+                                    "4.\tKeluar dan Save data\r\n");
+                    System.out.println("Ketik nomer fitur yang ingin anda gunakan: ");
+                    Scanner input5 = new Scanner(System.in);
+                            int jawaban = input5.nextInt();
+                    
+                    switch (jawaban) {
+                        case 1:
+                            daftarAplikasi.add(aplikasi.tambahAplikasi()); 
+                        break;
+
+                        case 2:
+                        try {
+                                daftarAplikasi.get(0).menghapusAplikasi(daftarAplikasi);                        
+                            }  catch (Exception e) {
+                                System.out.println("Tidak ada aplikasi dalam data, harap tambah aplikasi terlebih dahulu");
+                            } 
+                        break;
+
+                        case 4:
+                            System.exit(0);
+                        break;
+
+                        default:
+                        break;
+                    }
                     break;
             
+                
                 default:
-                    break;
+                break;
             }
         }
 
