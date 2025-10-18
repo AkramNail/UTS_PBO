@@ -113,11 +113,4 @@ public class Aplikasi implements Serializable {
 
     }
 
-    public void mengaturAplikasi(List<Aplikasi> daftarAplikasi){
-
-                                        
-
-
-    }
-
 }

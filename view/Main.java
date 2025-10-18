@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import model.Aplikasi;
+import model.Group;
 
 public class Main {
 
@@ -13,32 +14,38 @@ public class Main {
         String fileName = "data_saves.ser";
         
         List<Aplikasi> daftarAplikasi = new ArrayList<>();
-        Aplikasi aplikasi = new Aplikasi("Start", "FLCL");
+        Aplikasi aplikasi = new Aplikasi("NIRVANA", "FLCL");
 
-        // Baca objek dari file
+        List<Group> daftarGroup = new ArrayList<>();
+        Group group = new Group("OASIS");
+
+        // membaca file yang disimpan di data_save.ser
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) {
-            List<Aplikasi> dataBaca = (List<Aplikasi>) ois.readObject();
+            List<Aplikasi> dataBaca1 = (List<Aplikasi>) ois.readObject();
+            List<Group> dataBaca2 = (List<Group>) ois.readObject();
             System.out.println("Data hasil dibaca dari file:");
-            for (Aplikasi m : dataBaca) {
+            for (Aplikasi m : dataBaca1) {
                 daftarAplikasi.add(m);
             }
+            for (Group m : dataBaca2) {
+                daftarGroup.add(m);
+            }
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            System.out.println(".");
         }
         Scanner input = new Scanner(System.in);
 
         int pilihan = 99;
 
-        while (pilihan != 7) {
+        while (pilihan != 5) {
             
             System.out.println("Daftar fitur yang dapat anda gunakan: ");
             System.out.print("1.\tJalankan group\r\n" + //
                                 "2.\tJalankan aplikasi\r\n" + //
-                                "3.\tJalankan website\r\n" + //
-                                "4.\tMengatur group \r\n" + //
-                                "5.\tMengatur aplikasi\r\n" + //
-                                "6.\tMengatur website\r\n" + //
-                                "7.\tKeluar\r\n" //
+                                "3.\tMengatur group \r\n" + //
+                                "4.\tMengatur aplikasi\r\n" + //
+                                "5.\tKeluar dan save\r\n" //
                                 );
 
             System.out.print("Ketik nomor fitur yang anda ingin jalankan: ");
@@ -51,13 +58,13 @@ public class Main {
                     }  catch (Exception e) {
                         System.out.println("Tidak ada aplikasi dalam data, harap tambah aplikasi terlebih dahulu");
                     } 
-                    break;
+                break;
 
-                case 5:
+                case 4:
                     System.out.print("1.\tMenambah aplikasi\r\n" + //
                                     "2.\tMenghapus aplikasi\r\n" +
                                     "3.\tMain menu\r\n" + //
-                                    "4.\tKeluar dan Save data\r\n");
+                                    "4.\tKeluar\r\n");
                     System.out.println("Ketik nomer fitur yang ingin anda gunakan: ");
                     Scanner input5 = new Scanner(System.in);
                             int jawaban = input5.nextInt();
@@ -82,8 +89,7 @@ public class Main {
                         default:
                         break;
                     }
-                    break;
-            
+                break;
                 
                 default:
                 break;
