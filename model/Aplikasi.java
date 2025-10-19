@@ -29,7 +29,7 @@ public class Aplikasi implements Serializable {
         int pilihan;
 
         Scanner input = new Scanner(System.in);
-        System.out.print("Ketik nomor aplikasi/website/fitur yang anda ingin jalankan: ");
+        System.out.print("Ketik nomor aplikasi/website yang anda ingin jalankan: ");
         pilihan = input.nextInt();
 
         for (int i = 0; i < totalAplikasi; i++) {
@@ -47,11 +47,7 @@ public class Aplikasi implements Serializable {
 
                 break;
 
-            } else if(pilihan == 99){
-
-            } else if(pilihan == 100){
-                
-            }
+            } 
         }
 
     }
@@ -67,6 +63,8 @@ public class Aplikasi implements Serializable {
 
         System.out.println("Masukan link path aplikasi atau link website: ");
         link = input.nextLine();
+
+        System.out.println("Aplikasi/website berhasil ditambahkan");
 
         return new Aplikasi(nama, link);
     }
@@ -92,23 +90,18 @@ public class Aplikasi implements Serializable {
             if (pilihan - 1 == i) {
                 
                 String jawaban;
-                System.out.println("Apakah anda yakin ingin menghapus aplikasi: " + daftarAplikasi.get(i).namaAplikasi + ", Ketik Y untuk ya ketik N untuk tidak");
+                System.out.println("Apakah anda yakin ingin menghapus aplikasi: " + daftarAplikasi.get(i).namaAplikasi + ", Ketik y untuk ya ketik n untuk tidak");
                 Scanner input2 = new Scanner(System.in);
                 jawaban = input2.nextLine();
-                System.out.println(jawaban);
 
                 if(jawaban.equals("y")){
                     daftarAplikasi.remove(i);
-                    System.out.println("hapus");
+                    System.out.println("data aplikasi/website berhasil di hapus");
                 }
 
                 break;
 
-            } else if(pilihan == 99){
-
-            } else if(pilihan == 100){
-                
-            }
+            } 
         }
 
     }

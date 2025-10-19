@@ -93,6 +93,8 @@ public class Group implements Serializable {
 
         }
 
+        System.out.println("Group berhasil ditambah");
+
         return new Group(nama, daftarLink);
 
     }
@@ -112,6 +114,8 @@ public class Group implements Serializable {
         Scanner input = new Scanner(System.in);
         System.out.print("Ketik nomor group yang ingin anda hapus: ");
         pilihan = input.nextInt();
+
+        System.out.println("Group berhasil di hapus");
 
         return (pilihan - 1);
 
