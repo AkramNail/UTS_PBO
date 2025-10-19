@@ -32,10 +32,10 @@ public class Group implements Serializable {
         int pilihan;
 
         Scanner input = new Scanner(System.in);
-        System.out.print("Ketik nomor group yang ingin anda jalankan");
+        System.out.print("Ketik nomor group yang ingin anda jalankan: ");
         pilihan = input.nextInt();
 
-        System.out.println("Menjalankan group, dengan aplikasi: ");
+        System.out.println("Menjalankan group, dengan aplikasi/website: ");
         loop = 1;
         for (String app : daftarGroup.get(pilihan - 1).daftarLinkAplikasi) {
             System.out.println( loop + ". " + app);
@@ -88,7 +88,7 @@ public class Group implements Serializable {
                 }
             }
             Scanner input2 = new Scanner(System.in);
-            System.out.println("apakah anda igin mendambah aplikasi/website lain, ketik y untuk ya dan ketik n untuk tidak");
+            System.out.println("apakah anda igin mendambah aplikasi/website lain, ketik y untuk ya dan ketik n untuk tidak: ");
             keluar = input2.nextLine();
 
         }
@@ -110,7 +110,7 @@ public class Group implements Serializable {
         int pilihan;
 
         Scanner input = new Scanner(System.in);
-        System.out.print("Ketik nomor group yang ingin anda hapus");
+        System.out.print("Ketik nomor group yang ingin anda hapus: ");
         pilihan = input.nextInt();
 
         return (pilihan - 1);

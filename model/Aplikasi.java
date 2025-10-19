@@ -65,7 +65,7 @@ public class Aplikasi implements Serializable {
         System.out.println("Masuk nama aplikasi: ");
         nama = input.nextLine();
 
-        System.out.println("Masukan link path aplikasi: ");
+        System.out.println("Masukan link path aplikasi atau link website: ");
         link = input.nextLine();
 
         return new Aplikasi(nama, link);
