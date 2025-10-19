@@ -54,7 +54,7 @@ public class MainMenu {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) {
             List<Aplikasi> dataBaca1 = (List<Aplikasi>) ois.readObject();
             List<Group> dataBaca2 = (List<Group>) ois.readObject();
-            System.out.println("Data hasil dibaca dari file:");
+            System.out.println("Data hasil dibaca dari file:" + fileName);
             for (Aplikasi m : dataBaca1) {
                 daftarAplikasi.add(m);
             }
